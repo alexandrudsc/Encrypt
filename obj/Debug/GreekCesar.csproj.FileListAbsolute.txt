@@ -1,0 +1,17 @@
+D:\Alex\GreekCesar\GreekCesar\bin\Debug\GreekCesar.exe.config
+D:\Alex\GreekCesar\GreekCesar\bin\Debug\GreekCesar.exe
+D:\Alex\GreekCesar\GreekCesar\bin\Debug\GreekCesar.pdb
+D:\Alex\GreekCesar\GreekCesar\obj\Debug\GreekCesar.Form1.resources
+D:\Alex\GreekCesar\GreekCesar\obj\Debug\GreekCesar.Properties.Resources.resources
+D:\Alex\GreekCesar\GreekCesar\obj\Debug\GreekCesar.csproj.GenerateResource.Cache
+D:\Alex\GreekCesar\GreekCesar\obj\Debug\GreekCesar.exe
+D:\Alex\GreekCesar\GreekCesar\obj\Debug\GreekCesar.pdb
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\bin\Debug\GreekCesar.exe.config
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.exe
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.pdb
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\bin\Debug\GreekCesar.exe
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\bin\Debug\GreekCesar.pdb
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.Form1.resources
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.Properties.Resources.resources
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.csproj.GenerateResource.Cache
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.csprojResolveAssemblyReference.cache
