@@ -74,8 +74,18 @@ namespace Encryption
             key2 = key2.ToUpper();
 
             char[,] mSubs = CreateSubstitutionMatrix(key1);
+            Dictionary<char, List<Char>> mTrans = CreateTransposedMatrixFromEncrypted(new StringBuilder(textToDecrypt), key2);
+            List<char>[] chars = new List<char>[mTrans.Count];
+            mTrans.Values.CopyTo(chars, 0);
+            StringBuilder mTransString = new StringBuilder();
+            for (int i = 0; i < chars[0].Count; i++)  // column
+            {
+                for (int j = 0; j < chars.Length; j++) // row
+                    mTransString.Append(chars[j][i]);
+            }
 
-
+            for (int i = 0; i < mTransString.Length - 1; i += 2)
+                builder.Append(DoSubstitutionFromEncrypted(mSubs, mTransString[i] + "" + mTransString[i + 1]));
             return builder.ToString();
         }
 
@@ -123,6 +133,18 @@ namespace Encryption
             return c + "";
         }
 
+        private static char DoSubstitutionFromEncrypted(char[,] mSubs, string encrypted)
+        {
+            int x = 0, y = 0;
+            for (int i = 1; i < mSubs.GetLength(0); i++)
+                if (mSubs[0, i] == encrypted[0])
+                    x = i;
+            for (int i = 1; i < mSubs.GetLength(0); i++)
+                if (mSubs[i, 0] == encrypted[1])
+                    y = i;
+            return mSubs[x, y] ;
+        }
+
         private Dictionary<char, List<Char> > CreateTransposedMatrix(StringBuilder sb, string key2)
         {
             Dictionary<char, List<Char> > mTrans = new Dictionary<char, List<Char> > ();
@@ -138,7 +160,40 @@ namespace Encryption
                 mTrans[key2[column]].Add(c);
                 column++;
             }
-        
+            if (mTrans[key2[key2.Length - 1]].Count < mTrans[key2[0]].Count)
+            {
+                Random r = new Random();
+                mTrans[key2[key2.Length - 1]].Add(ALPHABET[r.Next(0, 25)]);
+            }
+
+            return mTrans;
+        }
+
+        //===========================================================================================
+        private Dictionary<char, List<Char>> CreateTransposedMatrixFromEncrypted(StringBuilder encryptedText, 
+            string key2)
+        {
+            Dictionary<char, List<Char>> mTrans = new Dictionary<char, List<Char>>();
+            int row = 0;
+            int currChar = 0;
+            int columns = encryptedText.Length / key2.Length;
+
+            foreach (char c in key2)
+                mTrans.Add(c, new List<Char>());
+            key2 = String.Concat(key2.OrderBy(c => c));
+            foreach (char c in encryptedText.ToString())
+            {
+                if (currChar >= columns)
+                {
+                    currChar = 0;
+                    row++;
+                }
+                if (row >= key2.Length)
+                    break;
+                mTrans[key2[row]].Add(c);
+                currChar++;
+            }
+
             return mTrans;
         }
         //===========================================================================================

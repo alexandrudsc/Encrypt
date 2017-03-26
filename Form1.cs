@@ -50,6 +50,9 @@ namespace Encryption
                 case "Caesar":
                     txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { 4 });
                     break;
+                case "ADFGVX":
+                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { "orange", "water" });
+                    break;
             }
         }
     }
