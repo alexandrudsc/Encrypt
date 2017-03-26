@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Encryption.ui;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,13 +29,25 @@ namespace Encryption
             switch (criptareToolStripMenuItem.Text)
             {
                 case "Greek":
-                    txtEncrypt.Text =  EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.GREEK, new object[] { 6 });
+                    SimpleInput simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    { 
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.GREEK, new object[] { simpleInput.txtKey.Text });
+                    }
                     break;
                 case "Caesar":
-                    txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { 4 });
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { simpleInput.txtKey.Text });
+                    }
                     break;
                 case "ADFGVX":
-                    txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { "orange", "water"});
+                    DoubleInput doubleInput = new DoubleInput();
+                    if (doubleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { doubleInput.txtKey1.Text, doubleInput.txtKey2.Text });
+                    }
                     break;
             }
 
@@ -45,13 +58,25 @@ namespace Encryption
             switch (criptareToolStripMenuItem.Text)
             {
                 case "Greek":
-                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.GREEK, new object[] { 6 });
+                    SimpleInput simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.GREEK, new object[] { simpleInput.txtKey.Text });
+                    }
                     break;
                 case "Caesar":
-                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { 4 });
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { simpleInput.txtKey.Text });
+                    }
                     break;
                 case "ADFGVX":
-                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { "orange", "water" });
+                    DoubleInput doubleInput = new DoubleInput();
+                    if (doubleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { doubleInput.txtKey1.Text, doubleInput.txtKey2.Text });
+                    }
                     break;
             }
         }

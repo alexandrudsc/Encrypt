@@ -7,3 +7,5 @@ D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.exe
 D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\GreekCesar.pdb
 D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\Encryption.Form1.resources
 D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\Encrypt.csprojResolveAssemblyReference.cache
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\Encryption.ui.DoubleInput.resources
+D:\Faculty\Labs\An 4 sem II\CSI\GreekCesar\GreekCesar\obj\Debug\Encryption.ui.SimpleInput.resources

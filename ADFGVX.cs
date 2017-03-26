@@ -177,6 +177,8 @@ namespace Encryption
             int row = 0;
             int currChar = 0;
             int columns = encryptedText.Length / key2.Length;
+            if (encryptedText.Length % key2.Length > 0)
+                columns++;
 
             foreach (char c in key2)
                 mTrans.Add(c, new List<Char>());
