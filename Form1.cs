@@ -42,12 +42,25 @@ namespace Encryption
                         txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { simpleInput.txtKey.Text });
                     }
                     break;
+
+                case "Playfair":
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.PLAYFAIR, new object[] { simpleInput.txtKey.Text });
+                    }
+                    break;
+
                 case "ADFGVX":
                     DoubleInput doubleInput = new DoubleInput();
                     if (doubleInput.ShowDialog() == DialogResult.OK)
                     {
                         txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { doubleInput.txtKey1.Text, doubleInput.txtKey2.Text });
                     }
+                    break;
+
+                default:
+                    MessageBox.Show("Select encryption mode from menu.");
                     break;
             }
 
@@ -71,12 +84,24 @@ namespace Encryption
                         txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.CAESAR, new object[] { simpleInput.txtKey.Text });
                     }
                     break;
+
+                case "Playfair":
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.PLAYFAIR, new object[] { simpleInput.txtKey.Text });
+                    }
+                    break;
+
                 case "ADFGVX":
                     DoubleInput doubleInput = new DoubleInput();
                     if (doubleInput.ShowDialog() == DialogResult.OK)
                     {
                         txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { doubleInput.txtKey1.Text, doubleInput.txtKey2.Text });
                     }
+                    break;
+                default:
+                    MessageBox.Show("Select encryption mode from menu.");
                     break;
             }
         }

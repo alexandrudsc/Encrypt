@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Encryption
+namespace Encryption.algorithms
 {
     class ADFGVX : Algorithm
     { 

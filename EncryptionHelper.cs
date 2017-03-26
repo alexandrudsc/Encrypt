@@ -6,6 +6,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Encryption.algorithms;
+
 namespace Encryption
 {
     class EncryptionHelper
@@ -14,6 +16,7 @@ namespace Encryption
         {
             GREEK,
             CAESAR,
+            PLAYFAIR,
             ADFGVX
         }
 
@@ -25,6 +28,8 @@ namespace Encryption
                     return Encrypt(new OldGreek(), textToEncrypt, keys);
                 case EncryptionMode.CAESAR:
                     return Encrypt(new Caesar(), textToEncrypt, keys);
+                case EncryptionMode.PLAYFAIR:
+                    return Encrypt(new Playfair(), textToEncrypt, keys);
                 case EncryptionMode.ADFGVX:
                     return Encrypt(new ADFGVX(), textToEncrypt, keys);
             }
@@ -40,6 +45,8 @@ namespace Encryption
                     return Decrypt(new OldGreek(), textToDecrypt, keys);
                 case EncryptionMode.CAESAR:
                     return Decrypt(new Caesar(), textToDecrypt, keys);
+                case EncryptionMode.PLAYFAIR:
+                    return Decrypt(new Playfair(), textToDecrypt, keys);
                 case EncryptionMode.ADFGVX:
                     return Decrypt(new ADFGVX(), textToDecrypt, keys);
             }

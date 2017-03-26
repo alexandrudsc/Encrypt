@@ -46,9 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ADFGVX.cs" />
+    <Compile Include="algorithms\ADFGVX.cs" />
     <Compile Include="Algorithm.cs" />
-    <Compile Include="Caesar.cs" />
+    <Compile Include="algorithms\Caesar.cs" />
+    <Compile Include="algorithms\Playfair.cs" />
     <Compile Include="EncryptionHelper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -56,7 +57,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="OldGreek.cs" />
+    <Compile Include="algorithms\OldGreek.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ui\DoubleInput.cs">
@@ -67,6 +68,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ui\SimpleInput.Designer.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
