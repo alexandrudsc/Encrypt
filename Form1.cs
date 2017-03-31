@@ -59,6 +59,9 @@ namespace Encryption
                     }
                     break;
 
+                case "Homophonic":
+                    txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.HOMOPHONIC, new object[] { });
+                    break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");
                     break;
@@ -99,6 +102,9 @@ namespace Encryption
                     {
                         txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ADFGVX, new object[] { doubleInput.txtKey1.Text, doubleInput.txtKey2.Text });
                     }
+                    break;
+                case "Homophonic":
+                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.HOMOPHONIC, new object[] { });
                     break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");

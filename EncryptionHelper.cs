@@ -17,7 +17,8 @@ namespace Encryption
             GREEK,
             CAESAR,
             PLAYFAIR,
-            ADFGVX
+            ADFGVX,
+            HOMOPHONIC
         }
 
         public static String Encrypt(String textToEncrypt, EncryptionMode enc, object[] keys)
@@ -32,6 +33,8 @@ namespace Encryption
                     return Encrypt(new Playfair(), textToEncrypt, keys);
                 case EncryptionMode.ADFGVX:
                     return Encrypt(new ADFGVX(), textToEncrypt, keys);
+                case EncryptionMode.HOMOPHONIC:
+                    return Encrypt(new Homophonic(), textToEncrypt, keys);
             }
 
             return textToEncrypt;
@@ -49,6 +52,8 @@ namespace Encryption
                     return Decrypt(new Playfair(), textToDecrypt, keys);
                 case EncryptionMode.ADFGVX:
                     return Decrypt(new ADFGVX(), textToDecrypt, keys);
+                case EncryptionMode.HOMOPHONIC:
+                    return Decrypt(new Homophonic(), textToDecrypt, keys);
             }
             return textToDecrypt;
         }

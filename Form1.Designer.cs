@@ -32,13 +32,14 @@
             this.criptareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.greekToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caesarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.playfairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adfgvxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.txtNormal = new System.Windows.Forms.RichTextBox();
             this.btnEncrypt = new System.Windows.Forms.Button();
             this.txtEncrypt = new System.Windows.Forms.RichTextBox();
             this.btnDecrypt = new System.Windows.Forms.Button();
-            this.playfairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homophonicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -62,7 +63,8 @@
             this.greekToolStripMenuItem,
             this.caesarToolStripMenuItem,
             this.playfairToolStripMenuItem,
-            this.adfgvxToolStripMenuItem});
+            this.adfgvxToolStripMenuItem,
+            this.homophonicToolStripMenuItem});
             this.criptareToolStripMenuItem.Name = "criptareToolStripMenuItem";
             this.criptareToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
             this.criptareToolStripMenuItem.Text = "Choose mode";
@@ -80,6 +82,13 @@
             this.caesarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.caesarToolStripMenuItem.Text = "Caesar";
             this.caesarToolStripMenuItem.Click += new System.EventHandler(this.menuSelectEncrypt);
+            // 
+            // playfairToolStripMenuItem
+            // 
+            this.playfairToolStripMenuItem.Name = "playfairToolStripMenuItem";
+            this.playfairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.playfairToolStripMenuItem.Text = "Playfair";
+            this.playfairToolStripMenuItem.Click += new System.EventHandler(this.menuSelectEncrypt);
             // 
             // adfgvxToolStripMenuItem
             // 
@@ -152,12 +161,12 @@
             this.btnDecrypt.UseVisualStyleBackColor = true;
             this.btnDecrypt.Click += new System.EventHandler(this.btnDecrypt_Click);
             // 
-            // playfairToolStripMenuItem
+            // homophonicToolStripMenuItem
             // 
-            this.playfairToolStripMenuItem.Name = "playfairToolStripMenuItem";
-            this.playfairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.playfairToolStripMenuItem.Text = "Playfair";
-            this.playfairToolStripMenuItem.Click += new System.EventHandler(this.menuSelectEncrypt);
+            this.homophonicToolStripMenuItem.Name = "homophonicToolStripMenuItem";
+            this.homophonicToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.homophonicToolStripMenuItem.Text = "Homophonic";
+            this.homophonicToolStripMenuItem.Click += new System.EventHandler(this.menuSelectEncrypt);
             // 
             // Form1
             // 
@@ -193,6 +202,7 @@
         private System.Windows.Forms.Button btnDecrypt;
         private System.Windows.Forms.ToolStripMenuItem adfgvxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playfairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homophonicToolStripMenuItem;
     }
 }
 
