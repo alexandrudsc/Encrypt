@@ -62,6 +62,14 @@ namespace Encryption
                 case "Homophonic":
                     txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.HOMOPHONIC, new object[] { });
                     break;
+                case "Enigma":
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.ENIGMA, new object[] { simpleInput.txtKey.Text });
+                    }
+                    
+                    break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");
                     break;
@@ -105,6 +113,14 @@ namespace Encryption
                     break;
                 case "Homophonic":
                     txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.HOMOPHONIC, new object[] { });
+                    break;
+                case "Enigma":
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ENIGMA, new object[] { simpleInput.txtKey.Text });
+                    }
+                    
                     break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");

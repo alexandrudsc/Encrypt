@@ -18,7 +18,8 @@ namespace Encryption
             CAESAR,
             PLAYFAIR,
             ADFGVX,
-            HOMOPHONIC
+            HOMOPHONIC,
+            ENIGMA
         }
 
         public static String Encrypt(String textToEncrypt, EncryptionMode enc, object[] keys)
@@ -35,6 +36,8 @@ namespace Encryption
                     return Encrypt(new ADFGVX(), textToEncrypt, keys);
                 case EncryptionMode.HOMOPHONIC:
                     return Encrypt(new Homophonic(), textToEncrypt, keys);
+                case EncryptionMode.ENIGMA:
+                    return Encrypt(new Enigma(), textToEncrypt, keys);
             }
 
             return textToEncrypt;
@@ -54,6 +57,8 @@ namespace Encryption
                     return Decrypt(new ADFGVX(), textToDecrypt, keys);
                 case EncryptionMode.HOMOPHONIC:
                     return Decrypt(new Homophonic(), textToDecrypt, keys);
+                case EncryptionMode.ENIGMA:
+                    return Decrypt(new Enigma(), textToDecrypt, keys);
             }
             return textToDecrypt;
         }
