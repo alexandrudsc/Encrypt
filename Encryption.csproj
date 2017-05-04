@@ -49,6 +49,7 @@
     <Compile Include="algorithms\ADFGVX.cs" />
     <Compile Include="Algorithm.cs" />
     <Compile Include="algorithms\Caesar.cs" />
+    <Compile Include="algorithms\DES.cs" />
     <Compile Include="algorithms\Enigma.cs" />
     <Compile Include="algorithms\Homophonic.cs" />
     <Compile Include="algorithms\Playfair.cs" />

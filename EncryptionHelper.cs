@@ -19,7 +19,8 @@ namespace Encryption
             PLAYFAIR,
             ADFGVX,
             HOMOPHONIC,
-            ENIGMA
+            ENIGMA,
+            DES
         }
 
         public static String Encrypt(String textToEncrypt, EncryptionMode enc, object[] keys)
@@ -38,6 +39,9 @@ namespace Encryption
                     return Encrypt(new Homophonic(), textToEncrypt, keys);
                 case EncryptionMode.ENIGMA:
                     return Encrypt(new Enigma(), textToEncrypt, keys);
+                case EncryptionMode.DES:
+                    return Encrypt(new DES(), textToEncrypt, keys);
+
             }
 
             return textToEncrypt;
@@ -59,6 +63,8 @@ namespace Encryption
                     return Decrypt(new Homophonic(), textToDecrypt, keys);
                 case EncryptionMode.ENIGMA:
                     return Decrypt(new Enigma(), textToDecrypt, keys);
+                case EncryptionMode.DES:
+                    return Decrypt(new DES(), textToDecrypt, keys);
             }
             return textToDecrypt;
         }

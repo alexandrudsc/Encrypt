@@ -68,7 +68,14 @@ namespace Encryption
                     {
                         txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.ENIGMA, new object[] { simpleInput.txtKey.Text });
                     }
-                    
+                    break;
+
+                case "DES":
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.DES, new object[] { simpleInput.txtKey.Text });
+                    }
                     break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");
