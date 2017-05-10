@@ -77,6 +77,9 @@ namespace Encryption
                         txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.DES, new object[] { simpleInput.txtKey.Text });
                     }
                     break;
+                case "RSA":
+                    txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.RSA, new object[] {});
+                    break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");
                     break;
@@ -127,8 +130,12 @@ namespace Encryption
                     {
                         txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.ENIGMA, new object[] { simpleInput.txtKey.Text });
                     }
-                    
                     break;
+                    // TODO: add message for DES
+                case "RSA":
+                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.RSA, new object[] { });
+                    break;
+
                 default:
                     MessageBox.Show("Select encryption mode from menu.");
                     break;

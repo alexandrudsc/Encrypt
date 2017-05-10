@@ -20,7 +20,8 @@ namespace Encryption
             ADFGVX,
             HOMOPHONIC,
             ENIGMA,
-            DES
+            DES,
+            RSA,
         }
 
         public static String Encrypt(String textToEncrypt, EncryptionMode enc, object[] keys)
@@ -41,7 +42,8 @@ namespace Encryption
                     return Encrypt(new Enigma(), textToEncrypt, keys);
                 case EncryptionMode.DES:
                     return Encrypt(new DES(), textToEncrypt, keys);
-
+                case EncryptionMode.RSA:
+                    return Encrypt(new RSA(), textToEncrypt, keys);
             }
 
             return textToEncrypt;
@@ -65,6 +67,8 @@ namespace Encryption
                     return Decrypt(new Enigma(), textToDecrypt, keys);
                 case EncryptionMode.DES:
                     return Decrypt(new DES(), textToDecrypt, keys);
+                case EncryptionMode.RSA:
+                    return Decrypt(new RSA(), textToDecrypt, keys);
             }
             return textToDecrypt;
         }
