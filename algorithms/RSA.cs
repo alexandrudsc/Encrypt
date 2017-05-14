@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace Encryption.algorithms
 {
@@ -19,12 +20,66 @@ namespace Encryption.algorithms
 
         public override string Encrypt(string textToEncrypt, object[] keys)
         {
-            throw new NotImplementedException();
+            if (textToEncrypt == null || textToEncrypt.Length == 0)
+                return "";
+
+            StringBuilder builder = new StringBuilder();
+            Regex rgx = new Regex("[^a-zA-Z0-9]");
+
+            textToEncrypt = textToEncrypt.ToLower();
+            textToEncrypt = rgx.Replace(textToEncrypt, "");
+            textToEncrypt = textToEncrypt.ToUpper();
+            Console.WriteLine(textToEncrypt);
+
+            int key;
+            try
+            {
+                int.TryParse((string)keys[0], out key);
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+
+            init(key);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in textToEncrypt)
+                sb.Append(DoEncrypt(c));
+
+            return sb.ToString();
         }
 
         public override string Decrypt(string textToDecrypt, object[] keys)
         {
-            throw new NotImplementedException();
+            if (textToDecrypt == null || textToDecrypt.Length == 0)
+                return "";
+
+            StringBuilder builder = new StringBuilder();
+            Regex rgx = new Regex("[^a-zA-Z0-9]");
+
+            textToDecrypt = textToDecrypt.ToLower();
+            textToDecrypt = rgx.Replace(textToDecrypt, "");
+            textToDecrypt = textToDecrypt.ToUpper();
+            Console.WriteLine(textToDecrypt);
+
+            int key;
+            try
+            {
+                int.TryParse((string)keys[0], out key);
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+
+            init(key);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in textToDecrypt)
+                sb.Append((int)DoEncrypt(c));
+
+            return sb.ToString();
         }
 
         public RSA()
@@ -33,7 +88,7 @@ namespace Encryption.algorithms
         }
 
         // generate an N-bit (roughly) public and private key
-        RSA(int N)
+        public void init(int N)
         {
             List<int> listPrimes = GeneratePrimesNaive(N);
             BigInteger p = listPrimes[random.Next(0, N - 1)];
@@ -42,20 +97,19 @@ namespace Encryption.algorithms
             BigInteger phi = BigInteger.Multiply( (BigInteger.Subtract (p, one)), 
                 BigInteger.Subtract(q, one));
 
-            modulus = BigInteger.Multiply(modulus, q);
+            modulus = BigInteger.Multiply(p, q);
             publicKey = 65537;     // 2^16 + 1
             privateKey = BigInteger.ModPow(publicKey, 1, phi);
         }
 
-
-        BigInteger encrypt(BigInteger message)
+        private char DoEncrypt(BigInteger message)
         {
-            return BigInteger.ModPow(message, publicKey, modulus);
+            return (char)BigInteger.ModPow(message, publicKey, modulus);
         }
 
-        BigInteger decrypt(BigInteger encrypted)
+        private char DoDecrypt(BigInteger encryptedMessage)
         {
-            return BigInteger.ModPow(encrypted, privateKey, modulus);
+            return (char)BigInteger.ModPow(encryptedMessage, privateKey, modulus);
         }
 
         private static List<int> GeneratePrimesNaive(int n)

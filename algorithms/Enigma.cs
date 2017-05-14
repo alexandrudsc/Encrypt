@@ -59,7 +59,8 @@ namespace Encryption.algorithms
 
         public override string Decrypt(string textToDecrypt, object[] keys)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Not implemented (not requested) see Lab 6");
+            return string.Empty;
         }
     }
 }

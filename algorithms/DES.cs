@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Encryption.algorithms
 {
@@ -27,6 +28,7 @@ namespace Encryption.algorithms
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Please insert a valid number as message.");
                 return string.Empty;
             }
 
@@ -35,7 +37,7 @@ namespace Encryption.algorithms
 
         public override string Decrypt(string textToDecrypt, object[] keys)
         {
-            Console.WriteLine("Not implemented");
+            MessageBox.Show("Not implemented (not requested) see Lab 8 and 9"); 
             return string.Empty;
         }
 

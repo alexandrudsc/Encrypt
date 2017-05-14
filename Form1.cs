@@ -78,7 +78,12 @@ namespace Encryption
                     }
                     break;
                 case "RSA":
-                    txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.RSA, new object[] {});
+                    MessageBox.Show("In the next dialog, select number of bits for the key.");
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                    {
+                        txtEncrypt.Text = EncryptionHelper.Encrypt(txtNormal.Text, EncryptionHelper.EncryptionMode.RSA, new object[] { simpleInput.txtKey.Text });
+                    }
                     break;
                 default:
                     MessageBox.Show("Select encryption mode from menu.");
@@ -133,7 +138,10 @@ namespace Encryption
                     break;
                     // TODO: add message for DES
                 case "RSA":
-                    txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.RSA, new object[] { });
+                    MessageBox.Show("In the next dialog, select number of bits for the key.");
+                    simpleInput = new SimpleInput();
+                    if (simpleInput.ShowDialog() == DialogResult.OK)
+                        txtNormal.Text = EncryptionHelper.Decrypt(txtEncrypt.Text, EncryptionHelper.EncryptionMode.RSA, new object[] { simpleInput.txtKey.Text });
                     break;
 
                 default:
